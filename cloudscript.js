@@ -7,8 +7,53 @@
 // https://github.com/wang-yichun/AEX_PlayFabCloudScript.git
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
+// 购买
+// return: {status = 0:正确购买 1:没有发现录像 2:已经购买 3:资源不够}
+handlers.BuyRecord = function (args) {
+
+    var play_fab_id = args.PlayFabId;
+    var stage_id = args.StageId;
+    var currency_key = args.currency_key;
+    var currency_amount ＝ args.currency_amount;
+
+    var s3_key = stage_id + "_user_rec_data_s3_key";
+
+    var user_data = server.GetUserData({
+        PlayFabId: play_fab_id,
+        Keys: [s3_key]
+    });
+
+    var s3_value_data = user_data.Data[s3_key];
+    var s3_value = null;
+
+    // 处理没有s3的key的情况
+    if (s3_value_data == null) {
+        return {status: 1};
+    } else {
+        var s3_value = s3_value_data.Value;
+    }
+
+    var internel_buy_rec_key = "buy_rec#" + s3_value;
+    var user_data_2 = server.GetUserInternalData({
+        PlayFabId: currentPlayerId,
+        Keys: [internel_buy_rec_key]
+    });
+
+    var already_buy_data = user_data_2.Data[internel_buy_rec_key];
+    if (already_buy_data != null && already_like_data.Value == 1) {
+        return {status: 2};
+    }
+
+    var user_data_3 = server.GetUserData({
+        PlayFabId: play_fab_id,
+        Keys: ["CD"]
+    });
+
+    log.info(user_data_3);
+}
+
 // 点赞
-// return: {statis = 0:正确 1:没有发现录像 2:已经点过赞了}
+// return: {status = 0:正确 1:没有发现录像 2:已经点过赞了}
 handlers.LikeRecord = function (args) {
 
     var play_fab_id = args.PlayFabId;
