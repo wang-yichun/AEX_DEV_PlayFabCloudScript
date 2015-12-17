@@ -3,6 +3,8 @@
 // PogoRockGame - AEX 
 // CloudScript
 //
+// Managed via GitHub
+// https://github.com/wang-yichun/AEX_PlayFabCloudScript.git
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 handlers.LikeRecord = function (args) {
