@@ -23,13 +23,13 @@ handlers.LikeRecord = function (args) {
     });
 
     var s3_value_data = user_data.Data[s3_key];
-    var s3_value = undefined;
+    // var s3_value = undefined;
     
     // 处理没有s3的key的情况
     if (s3_value_data == undefined) {
         return {status: 1};
     } else {
-        s3_value = s3_value_data.Value;
+        var s3_value = s3_value_data.Value;
     }
 
     // 检查自己是否已经点过赞了
