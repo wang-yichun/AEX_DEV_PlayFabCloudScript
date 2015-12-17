@@ -18,11 +18,26 @@ handlers.LikeRecord = function (args) {
         Keys: [like_key]
     });
 
-    var like_value = user_data.Data[like_key];
-
-    if (like_value != undefined) {
-        log.info(like_value);
+    var like_value_object = user_data.Data[like_key];
+    var like_value;
+    
+    if（like_value_object == undefined) {
+        server.UpdateUserData({
+            PlayFabId = args.PlayFabId,
+            Data: {
+                like_key : 0
+            },
+            Permission: "public"
+        })
+        like_value = 0;
+    } else {
+        like_value = like_value_object.Value;
     }
+
+    
+
+    log.info(like_value);
+    
     
     log.info("== LikeRecord End");
 }
