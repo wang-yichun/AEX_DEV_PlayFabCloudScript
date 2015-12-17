@@ -34,7 +34,7 @@ handlers.LikeRecord = function (args) {
 
     // 检查自己是否已经点过赞了
     var internal_like_rec_key = "like_rec#" + s3_value;
-    var user_data_2 = server.GetUserData({
+    var user_data_2 = server.GetUserInternalData({
         PlayFabId: currentPlayerId,
         Keys: [internal_like_rec_key]
     });
