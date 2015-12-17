@@ -14,7 +14,7 @@ handlers.BuyRecord = function (args) {
     var play_fab_id = args.PlayFabId;
     var stage_id = args.StageId;
     var currency_key = args.currency_key;
-    var currency_amount ＝ args.currency_amount;
+    var currency_amount = args.currency_amount;
 
     var s3_key = stage_id + "_user_rec_data_s3_key";
 
