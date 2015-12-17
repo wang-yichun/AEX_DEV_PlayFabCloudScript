@@ -9,12 +9,15 @@
 
 handlers.LikeRecord = function (args) {
 
+    var play_fab_id = args.PlayFabId;
+    var stage_id = args.StageId;
+
     log.info("== LikeRecord Began");
 
-    var like_key = args.StageId + "_user_rec_like"; 
+    var like_key = stage_id + "_user_rec_like"; 
 
     var user_data = server.GetUserData({
-        PlayFabId: args.PlayFabId,
+        PlayFabId: play_fab_id,
         Keys: [like_key]
     });
 
@@ -23,7 +26,7 @@ handlers.LikeRecord = function (args) {
 
     if (like_value_data == undefined) {
         server.UpdateUserData({
-            PlayFabId = args.PlayFabId,
+            PlayFabId = play_fab_id,
             Data: {
                 like_key : 0
             },
