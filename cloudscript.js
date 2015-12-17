@@ -40,7 +40,7 @@ handlers.BuyRecord = function (args) {
     });
 
     var already_buy_data = user_data_2.Data[internel_buy_rec_key];
-    if (already_buy_data != null && already_like_data.Value == 1) {
+    if (already_buy_data != null && already_buy_data.Value == 1) {
         return {status: 2};
     }
 
