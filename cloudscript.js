@@ -26,7 +26,7 @@ handlers.LikeRecord = function (args) {
 
     if (like_value_data == undefined) {
         server.UpdateUserData({
-            PlayFabId = play_fab_id,
+            PlayFabId: play_fab_id,
             Data: {
                 like_key : 0
             },
