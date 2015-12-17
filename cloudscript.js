@@ -23,10 +23,10 @@ handlers.LikeRecord = function (args) {
     });
 
     var s3_value_data = user_data.Data[s3_key];
-    // var s3_value = undefined;
+    var s3_value = null;
     
     // 处理没有s3的key的情况
-    if (s3_value_data == undefined) {
+    if (s3_value_data == null) {
         return {status: 1};
     } else {
         var s3_value = s3_value_data.Value;
@@ -44,10 +44,10 @@ handlers.LikeRecord = function (args) {
     }
 
     var like_value_data = user_data.Data[like_key];
-    var like_value = undefined;
+    var like_value = null;
 
     // 处理没有原始like的情况
-    if (like_value_data == undefined) {
+    if (like_value_data == null) {
         like_value = 0;
     } else {
         like_value = like_value_data.Value;
