@@ -13,12 +13,14 @@ handlers.LikeRecord = function (args) {
 
     var like_key = args.StageId + "_user_rec_like"; 
 
-    var result = server.GetUserData({
+    var user_data = server.GetUserData({
         PlayFabId: args.PlayFabId,
         Keys: [like_key]
     });
 
-    log.info(result);
+    var like_value = user_data.Data[like_key];
+
+    log.info(like_value);
     log.info("== LikeRecord End");
 }
 
