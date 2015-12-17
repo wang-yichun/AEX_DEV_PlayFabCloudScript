@@ -8,13 +8,13 @@
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // 购买
-// return: {status = 0:正确购买 1:没有发现录像 2:已经购买 3:资源不够}
+// return: {status = 0:正确购买 1:没有发现录像 2:已经购买}
 handlers.BuyRecord = function (args) {
 
     var play_fab_id = args.PlayFabId;
     var stage_id = args.StageId;
-    var currency_key = args.currency_key;
-    var currency_amount = args.currency_amount;
+    var currency_key = args.CurrencyKey;
+    var currency_amount = args.CurrencyAmount;
 
     var s3_key = stage_id + "_user_rec_data_s3_key";
 
@@ -44,12 +44,15 @@ handlers.BuyRecord = function (args) {
         return {status: 2};
     }
 
-    var user_data_3 = server.GetUserData({
-        PlayFabId: play_fab_id,
-        Keys: ["CD"]
+    var suvc_result = server.SubtractUserVirtualCurrency({
+        PlayFabId: CurrentStageID,
+        VirtualCurrency: currency_key,
+        Amount: currency_amount
     });
 
-    log.info(user_data_3);
+    log.info("buy record: " + s3_key);
+
+    return {status: 0};
 }
 
 // 点赞
