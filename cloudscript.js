@@ -12,8 +12,6 @@ handlers.LikeRecord = function (args) {
     var play_fab_id = args.PlayFabId;
     var stage_id = args.StageId;
 
-    log.info("== LikeRecord Began");
-
     var like_key = stage_id + "_user_rec_like"; 
 
     var user_data = server.GetUserData({
@@ -24,23 +22,26 @@ handlers.LikeRecord = function (args) {
     var like_value_data = user_data.Data[like_key];
     var like_value = undefined;
 
+    // 处理没有原始like的情况
     if (like_value_data == undefined) {
-        var data = {};
-        data[like_key] = 0;
-
-        server.UpdateUserData({
-            PlayFabId: play_fab_id,
-            Data: data,
-            Permission: "public"
-        });
+        
         like_value = 0;
     } else {
         like_value = like_value_object.Value;
     }
 
-    log.info(like_value);
+    like_value++;
+
+    var data = {};
+    data[like_key] = like_value;
+
+    server.UpdateUserData({
+        PlayFabId: play_fab_id,
+        Data: data,
+        Permission: "public"
+    });
     
-    log.info("== LikeRecord End");
+    log.info("set " + like_key + " = " + like_value);
 }
 
 // If a user login for the first time, many operations will be done at the server.
