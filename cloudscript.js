@@ -45,9 +45,16 @@ handlers.BuyRecord = function (args) {
     }
 
     var suvc_result = server.SubtractUserVirtualCurrency({
-        PlayFabId: CurrentStageID,
+        PlayFabId: currentPlayerId,
         VirtualCurrency: currency_key,
         Amount: currency_amount
+    });
+
+    var data = {};
+    data[internel_buy_rec_key] = 1;
+    server.UpdateUserInternalData({
+        PlayFabId: currentPlayerId,
+        Data: data
     });
 
     log.info("buy record: " + s3_key);
