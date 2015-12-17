@@ -24,10 +24,9 @@ handlers.LikeRecord = function (args) {
 
     // 处理没有原始like的情况
     if (like_value_data == undefined) {
-        
         like_value = 0;
     } else {
-        like_value = like_value_object.Value;
+        like_value = like_value_data.Value;
     }
 
     like_value++;
