@@ -3,9 +3,9 @@
 // input args: { s3_value: 录像数据对应于s3中的key }
 // return: {result = 0: 还没买 1: 买了已经}
 
-handlers.IsAlreadyBuy = function (args) {
+handlers.IsAlreadyBuyRecord = function (args) {
 
-    var s3_value = args.S3Value
+    var s3_value = args.S3Value;
 
     var internel_buy_rec_key = "buy_rec#" + s3_value;
     var user_data_2 = server.GetUserInternalData({
