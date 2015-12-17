@@ -23,7 +23,7 @@ handlers.LikeRecord = function (args) {
     });
 
     var s3_value_data = user_data.Data[s3_key];
-    var s3_value;
+    var s3_value = undefined;
     
     // 处理没有s3的key的情况
     if（s3_value_data == undefined) {
