@@ -33,12 +33,15 @@ handlers.LikeRecord = function (args) {
     }
 
     // 检查自己是否已经点过赞了
-    var internal_like_rec_key = "like_rec_" + s3_value;
+    var internal_like_rec_key = "like_rec#" + s3_value;
     var user_data_2 = server.GetUserData({
         PlayFabId: currentPlayerId,
         Keys: [internal_like_rec_key]
     });
+    
     var already_like_data = user_data_2.Data[internal_like_rec_key];
+    log.info("already_like_data: " + already_like_data);
+
     if (already_like_data != null && already_like_data.Value == 1) {
         return {status: 2};
     }
