@@ -34,7 +34,6 @@ handlers.LikeRecord = function (args) {
         like_value = like_value_object.Value;
     }
 
-    
 
     log.info(like_value);
     
@@ -72,17 +71,14 @@ handlers.PrepareForNewUser = function (args) {
             GA2: 0,
             GA3: 0,
             GAPower: 0,
-            GACreateStartTime: "",
             GB1: 0,
             GB2: 0,
             GB3: 0,
             GBPower: 0,
-            GBCreateStartTime: "",
             GC1: 0,
             GC2: 0,
             GC3: 0,
             GCPower: 0,
-            GCCreateStartTime: "",
             GX: 0,
             StageInfoDataVersion: 0
         },
