@@ -40,9 +40,9 @@ handlers.LikeRecord = function (args) {
     });
 
     var already_like_data = user_data_2.Data[internal_like_rec_key];
-    
+
     log.info("internal_like_rec_key: " + internal_like_rec_key);
-    log.info("user_data_2: " + user_data_2);
+    log.info(user_data_2);
 
     if (already_like_data != null && already_like_data.Value == 1) {
         return {status: 2};
