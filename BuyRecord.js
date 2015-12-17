@@ -1,5 +1,8 @@
-// 购买
+/////////////////////////////////////////////////////////
+// 购买录像
 // return: {status = 0:正确购买 1:没有发现录像 2:已经购买}
+//
+
 handlers.BuyRecord = function (args) {
 
     var play_fab_id = args.PlayFabId;
