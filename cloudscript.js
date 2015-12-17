@@ -38,9 +38,11 @@ handlers.LikeRecord = function (args) {
         PlayFabId: currentPlayerId,
         Keys: [internal_like_rec_key]
     });
-    
+
     var already_like_data = user_data_2.Data[internal_like_rec_key];
-    log.info("already_like_data: " + already_like_data);
+    
+    log.info("internal_like_rec_key: " + internal_like_rec_key);
+    log.info("user_data_2: " + user_data_2);
 
     if (already_like_data != null && already_like_data.Value == 1) {
         return {status: 2};
