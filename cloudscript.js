@@ -25,11 +25,12 @@ handlers.LikeRecord = function (args) {
     var like_value = undefined;
 
     if (like_value_data == undefined) {
+        var data = {};
+        data[like_key] = 0;
+
         server.UpdateUserData({
             PlayFabId: play_fab_id,
-            Data: {
-                like_key : 0
-            },
+            Data: data,
             Permission: "public"
         });
         like_value = 0;
