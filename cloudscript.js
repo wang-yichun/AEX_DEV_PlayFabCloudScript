@@ -20,7 +20,10 @@ handlers.LikeRecord = function (args) {
 
     var like_value = user_data.Data[like_key];
 
-    log.info(like_value);
+    if (like_value != undefined) {
+        log.info(like_value);
+    }
+    
     log.info("== LikeRecord End");
 }
 
