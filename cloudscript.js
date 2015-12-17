@@ -26,7 +26,7 @@ handlers.LikeRecord = function (args) {
     var s3_value = undefined;
     
     // 处理没有s3的key的情况
-    if（s3_value_data == undefined) {
+    if (s3_value_data == undefined) {
         return {status: 1};
     } else {
         s3_value = s3_value_data.Value;
