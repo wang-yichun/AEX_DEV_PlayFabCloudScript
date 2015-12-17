@@ -19,23 +19,23 @@ handlers.LikeRecord = function (args) {
     });
 
     var like_value_object = user_data.Data[like_key];
-    var like_value;
+    var like_value = undefined;
     
-    if（like_value_object == undefined) {
-        server.UpdateUserData({
-            PlayFabId = args.PlayFabId,
-            Data: {
-                like_key : 0
-            },
-            Permission: "public"
-        })
-        like_value = 0;
-    } else {
-        like_value = like_value_object.Value;
-    }
+    // if（like_value_object == undefined) {
+    //     server.UpdateUserData({
+    //         PlayFabId = args.PlayFabId,
+    //         Data: {
+    //             like_key : 0
+    //         },
+    //         Permission: "public"
+    //     })
+    //     like_value = 0;
+    // } else {
+    //     like_value = like_value_object.Value;
+    // }
 
 
-    log.info(like_value);
+    log.info(like_value_object);
     
     
     log.info("== LikeRecord End");
