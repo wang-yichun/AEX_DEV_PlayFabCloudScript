@@ -18,26 +18,23 @@ handlers.LikeRecord = function (args) {
         Keys: [like_key]
     });
 
-    var like_value_obj = user_data.Data[like_key];
+    var like_value_data = user_data.Data[like_key];
     var like_value = undefined;
 
-    if (like_value_obj == undefined) {
-    //     server.UpdateUserData({
-    //         PlayFabId = args.PlayFabId,
-    //         Data: {
-    //             like_key : 0
-    //         },
-    //         Permission: "public"
-    //     })
-    //     like_value = 0;
-    // } else {
-    //     like_value = like_value_object.Value;
-        log.info("I'm undefined.");
+    if (like_value_data == undefined) {
+        server.UpdateUserData({
+            PlayFabId = args.PlayFabId,
+            Data: {
+                like_key : 0
+            },
+            Permission: "public"
+        });
+        like_value = 0;
+    } else {
+        like_value = like_value_object.Value;
     }
 
-
-    log.info(like_value_obj);
-    
+    log.info(like_value);
     
     log.info("== LikeRecord End");
 }
