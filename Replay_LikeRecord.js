@@ -68,5 +68,5 @@ handlers.LikeRecord = function (args) {
 	});
 
 	log.info("set " + like_key + " = " + like_value);
-	return {status: 0};
+	return {status: 0, like: like_value};
 }

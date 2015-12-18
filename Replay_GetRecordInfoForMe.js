@@ -60,6 +60,6 @@ handlers.GetRecordInfoForMe = function (args) {
 		like_value: like_value,
 		is_like: is_like_result.result,
 		is_buy: is_buy_result.result,
-		already_passed: already_passed
+		is_passed: already_passed
 	};
 }
