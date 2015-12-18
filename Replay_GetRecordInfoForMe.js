@@ -44,10 +44,22 @@ handlers.GetRecordInfoForMe = function (args) {
 		like_value = parseInt(like_value_data.Value);
 	}
 
+	var already_passed = false;
+	var stage_status_key = stage_id + "_stage_status";
+	var user_data_self = server.GetUserData({
+		PlayFabId: currentPlayerId,
+		Keys: [stage_status_key]
+	});
+	var self_stage_status = user_data_self.Data[stage_status_key];
+	if (self_stage_status != null && self_stage_status.Value == 2) {
+		already_passed = true;
+	}
+
 	return {
 		s3_value: s3_value,
 		like_value: like_value,
 		is_like: is_like_result.result,
-		is_buy: is_buy_result.result
+		is_buy: is_buy_result.result,
+		already_passed: already_passed
 	};
 }
