@@ -41,7 +41,7 @@ handlers.GetRecordInfoForMe = function (args) {
 	if (like_value_data == null) {
 		like_value = 0;
 	} else {
-		like_value = like_value_data.Value;
+		like_value = parseInt(like_value_data.Value);
 	}
 
 	return {
