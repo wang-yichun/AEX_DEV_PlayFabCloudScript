@@ -31,6 +31,8 @@ handlers.GetRecordInfoForMe = function (args) {
 		var s3_value = s3_value_data.Value;
 	}
 
+	log.info(s3_value_data);
+
 	var is_like_result = handlers.IsAlreadyLikeRecord (s3_value);
 	var is_buy_result = handlers.IsAlreadyBuyRecord (s3_value);
 
