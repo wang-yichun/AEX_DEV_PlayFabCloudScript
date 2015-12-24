@@ -10,10 +10,11 @@ handlers.GetRecordInfoForMe = function (args) {
 
 	var like_key = stage_id + "_user_rec_like";
 	var s3_key = stage_id + "_user_rec_data_s3_key";
+	var stat_info_key = stage_id + "_user_stat_info_list";
 
 	var user_data = server.GetUserData({
 		PlayFabId: playfab_id,
-		Keys: [like_key, s3_key]
+		Keys: [like_key, s3_key, stat_info_key]
 	});
 
 	var s3_value_data = user_data.Data[s3_key];
@@ -25,20 +26,16 @@ handlers.GetRecordInfoForMe = function (args) {
 			s3_value: s3_value,
 			like_value: 0,
 			is_like: 0,
-			is_buy: 0
+			is_buy: 0,
+			is_passed: false,
+			stat_info: ""
 		};
 	} else {
 		var s3_value = s3_value_data.Value;
 	}
 
-
-	log.info(s3_value);
-
 	var is_like_result = handlers.IsAlreadyLikeRecord ({S3Value: s3_value});
 	var is_buy_result = handlers.IsAlreadyBuyRecord ({S3Value: s3_value});
-
-	log.info(is_like_result);
-	log.info(is_buy_result);
 
 	var like_value_data = user_data.Data[like_key];
 	var like_value = null;
@@ -61,11 +58,21 @@ handlers.GetRecordInfoForMe = function (args) {
 		already_passed = true;
 	}
 
+	var stat_info_data = user_data.Data[stat_info_key];
+	var stat_info = null;
+
+	if (stat_info_data == null) {
+		stat_info = "";
+	} else {
+		stat_info = stat_info_data.Value;
+	}
+
 	return {
 		s3_value: s3_value,
 		like_value: like_value,
 		is_like: is_like_result.result,
 		is_buy: is_buy_result.result,
-		is_passed: already_passed
+		is_passed: already_passed,
+		stat_info: stat_info
 	};
 }
