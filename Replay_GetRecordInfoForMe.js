@@ -15,6 +15,7 @@ handlers.GetRecordInfoForMe = function (args) {
 	var user_account_info = server.GetUserAccountInfo({
 		PlayFabId: playfab_id
 	});
+	var display_name = user_account_info.TitleInfo.DisplayName;
 
 	log.info(user_account_info);
 
@@ -34,7 +35,8 @@ handlers.GetRecordInfoForMe = function (args) {
 			is_like: 0,
 			is_buy: 0,
 			is_passed: false,
-			stat_info: ""
+			stat_info: "",
+			display_name: display_name
 		};
 	} else {
 		var s3_value = s3_value_data.Value;
@@ -79,6 +81,7 @@ handlers.GetRecordInfoForMe = function (args) {
 		is_like: is_like_result.result,
 		is_buy: is_buy_result.result,
 		is_passed: already_passed,
-		stat_info: stat_info
+		stat_info: stat_info,
+		display_name: display_name
 	};
 }
