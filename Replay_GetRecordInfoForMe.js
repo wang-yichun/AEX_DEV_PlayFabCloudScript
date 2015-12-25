@@ -12,6 +12,12 @@ handlers.GetRecordInfoForMe = function (args) {
 	var s3_key = stage_id + "_user_rec_data_s3_key";
 	var stat_info_key = stage_id + "_user_stat_info_list";
 
+	var user_account_info = server.GetUserAccountInfo({
+		PlayFabId: playfab_id
+	});
+
+	log.info(user_account_info);
+
 	var user_data = server.GetUserData({
 		PlayFabId: playfab_id,
 		Keys: [like_key, s3_key, stat_info_key]
