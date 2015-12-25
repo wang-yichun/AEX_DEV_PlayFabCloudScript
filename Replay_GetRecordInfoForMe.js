@@ -15,7 +15,7 @@ handlers.GetRecordInfoForMe = function (args) {
 	var user_account_info = server.GetUserAccountInfo({
 		PlayFabId: playfab_id
 	});
-	var display_name = user_account_info.TitleInfo.DisplayName;
+	var display_name = user_account_info["TitleInfo"]["DisplayName"];
 
 	log.info(user_account_info);
 
