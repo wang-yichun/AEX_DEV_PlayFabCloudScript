@@ -20,6 +20,11 @@ handlers.SendHeart = function(args) {
         });
         var heart_send_from = heart_send_from_result.Data[heart_send_from_key];
 
+        if (heart_send_from == null) {
+        	heart_send_from = sender_id;
+        } else {
+        	heart_send_from = heart_send_from + "," + sender_id
+        }
         log.info("i: " + i + "heart_send_from: " + heart_send_from);
     };
 
