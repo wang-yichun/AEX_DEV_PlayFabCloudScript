@@ -18,12 +18,13 @@ handlers.SendHeart = function(args) {
             PlayFabId: receiver_id,
             Keys: [heart_send_from_key]
         });
-        var heart_send_from = heart_send_from_result.Data[heart_send_from_key];
+        var heart_send_from_data = heart_send_from_result.Data[heart_send_from_key];
+        var heart_send_from;
 
-        if (heart_send_from == null) {
+        if (heart_send_from_data == null) {
             heart_send_from = sender_id;
         } else {
-            heart_send_from = heart_send_from + "," + sender_id
+            heart_send_from = heart_send_from_data.Value + "," + sender_id
         }
         log.info("i: " + i + "heart_send_from: " + heart_send_from);
 
