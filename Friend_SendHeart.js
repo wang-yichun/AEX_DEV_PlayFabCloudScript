@@ -8,9 +8,11 @@ handlers.SendHeart = function(args) {
     var heart_send_from_key = "heart_send_from";
     var sender_id = args.sender_id;
     var receiver_ids = args.receiver_ids;
+    var send_time = args.send_time;
 
-    // log.info("sender_id: " + sender_id);
-    // log.info("receiver_ids: " + receiver_ids);
+    log.info("sender_id: " + sender_id);
+    log.info("receiver_ids: " + receiver_ids);
+    log.info("send_time: " + send_time);
 
     for (var i = 0; i < receiver_ids.length; i++) {
         var receiver_id = receiver_ids[i];
