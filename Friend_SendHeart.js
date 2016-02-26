@@ -39,6 +39,8 @@ handlers.SendHeart = function(args) {
             Permission: "Public"
         });
 
+        log.info(update_result);
+        
         if (update_result.code == 200) {
             success_count = success_count + 1;
         }
