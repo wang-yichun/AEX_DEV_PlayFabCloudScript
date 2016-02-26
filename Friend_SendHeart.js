@@ -21,11 +21,20 @@ handlers.SendHeart = function(args) {
         var heart_send_from = heart_send_from_result.Data[heart_send_from_key];
 
         if (heart_send_from == null) {
-        	heart_send_from = sender_id;
+            heart_send_from = sender_id;
         } else {
-        	heart_send_from = heart_send_from + "," + sender_id
+            heart_send_from = heart_send_from + "," + sender_id
         }
         log.info("i: " + i + "heart_send_from: " + heart_send_from);
+
+        var data = {};
+        data[heart_send_from_key] = heart_send_from;
+
+        server.UpdateUserData({
+            PlayFabId: receiver_id,
+            Data: data,
+            Permission: "Public"
+        });
     };
 
 
