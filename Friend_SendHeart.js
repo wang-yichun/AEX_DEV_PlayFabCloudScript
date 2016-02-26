@@ -12,8 +12,6 @@ handlers.SendHeart = function(args) {
     // log.info("sender_id: " + sender_id);
     // log.info("receiver_ids: " + receiver_ids);
 
-    var success_count = 0;
-
     for (var i = 0; i < receiver_ids.length; i++) {
         var receiver_id = receiver_ids[i];
         var heart_send_from_result = server.GetUserData({
@@ -38,13 +36,7 @@ handlers.SendHeart = function(args) {
             Data: data,
             Permission: "Public"
         });
-
-        log.info(update_result);
-        
-        if (update_result.code == 200) {
-            success_count = success_count + 1;
-        }
     };
 
-    return { status: 0, success_count: success_count, total_count: receiver_ids.length };
+    return { status: 0 };
 }
