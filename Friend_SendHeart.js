@@ -69,7 +69,7 @@ handlers.SendHeart = function(args) {
 
             var already_send_ids = JSON.parse(friend_id_already_send_today_data.Value);
 
-            self_data[friend_id_already_send_today_key] = already_send_ids.concat(receiver_ids);
+            self_data[friend_id_already_send_today_key] = JSON.stringify(already_send_ids.concat(receiver_ids));
         }
     }
     self_data[friend_life_send_time_key] = JSON.stringify(send_time);
