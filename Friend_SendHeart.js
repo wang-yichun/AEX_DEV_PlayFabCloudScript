@@ -78,5 +78,7 @@ handlers.SendHeart = function(args) {
         Permission: "Public"
     });
 
+    log.info("self_update_result: " + self_update_result.data);
+
     return { status: 0, data_version: self_update_result.data };
 }
