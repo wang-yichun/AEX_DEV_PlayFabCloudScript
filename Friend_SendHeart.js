@@ -57,14 +57,17 @@ handlers.SendHeart = function(args) {
         PlayFabId: sender_id,
         Keys: [friend_id_already_send_today_key, friend_life_send_time_key]
     });
-    var friend_id_already_send_today = self_data_result.Data[friend_id_already_send_today_key];
+    var friend_id_already_send_today_data = self_data_result.Data[friend_id_already_send_today_key];
     var friend_life_send_time = self_data_result.Data[friend_life_send_time_key]; // unuse
 
     var self_data = {};
-    if (friend_id_already_send_today == null || friend_id_already_send_today == "") {
+    if (friend_id_already_send_today_data == null) {
         self_data[friend_id_already_send_today_key] = receiver_ids_str;
     } else {
-        self_data[friend_id_already_send_today_key] = friend_id_already_send_today + "," + receiver_ids_str;
+        if (friend_id_already_send_today_data.Value == null) {
+            self_data[friend_id_already_send_today_key] = receiver_ids_str;
+        }
+        self_data[friend_id_already_send_today_key] = friend_id_already_send_today.Value + "," + receiver_ids_str;
     }
     self_data[friend_life_send_time_key] = send_time;
 
