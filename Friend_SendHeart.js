@@ -17,7 +17,6 @@ handlers.SendHeart = function(args) {
     log.info("receiver_ids: " + receiver_ids);
     log.info("send_time: " + send_time);
 
-    var receiver_ids_str = "";
     // update receivers
     for (var i = 0; i < receiver_ids.length; i++) {
         var receiver_id = receiver_ids[i];
@@ -62,12 +61,15 @@ handlers.SendHeart = function(args) {
 
     var self_data = {};
     if (friend_id_already_send_today_data == null) {
-        self_data[friend_id_already_send_today_key] = receiver_ids_str;
+        self_data[friend_id_already_send_today_key] = JSON.stringify(receiver_ids);
     } else {
         if (friend_id_already_send_today_data.Value == null) {
-            self_data[friend_id_already_send_today_key] = receiver_ids_str;
+            self_data[friend_id_already_send_today_key] = JSON.stringify(receiver_ids);
         } else {
-            self_data[friend_id_already_send_today_key] = friend_id_already_send_today_data.Value + "," + receiver_ids_str;
+
+            var already_send_ids = JSON.parse(friend_id_already_send_today_data.Value);
+
+            self_data[friend_id_already_send_today_key] = already_send_ids.concat(receiver_ids);
         }
     }
     self_data[friend_life_send_time_key] = send_time;
@@ -78,7 +80,5 @@ handlers.SendHeart = function(args) {
         Permission: "Public"
     });
 
-    log.info("self_update_result: " + self_update_result.data);
-
-    return { status: 0, data_version: self_update_result.data };
+    return { status: 0 };
 }
