@@ -67,7 +67,7 @@ handlers.SendHeart = function(args) {
         if (friend_id_already_send_today_data.Value == null) {
             self_data[friend_id_already_send_today_key] = receiver_ids_str;
         } else {
-            self_data[friend_id_already_send_today_key] = friend_id_already_send_today.Value + "," + receiver_ids_str;
+            self_data[friend_id_already_send_today_key] = friend_id_already_send_today_data.Value + "," + receiver_ids_str;
         }
     }
     self_data[friend_life_send_time_key] = send_time;
