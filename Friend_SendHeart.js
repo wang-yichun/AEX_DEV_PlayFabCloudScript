@@ -72,7 +72,7 @@ handlers.SendHeart = function(args) {
             self_data[friend_id_already_send_today_key] = already_send_ids.concat(receiver_ids);
         }
     }
-    self_data[friend_life_send_time_key] = send_time;
+    self_data[friend_life_send_time_key] = JSON.stringify(send_time);
 
     var self_update_result = server.UpdateUserData({
         PlayFabId: sender_id,
