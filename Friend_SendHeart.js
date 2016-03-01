@@ -73,12 +73,10 @@ handlers.SendHeart = function(args) {
     self_data[friend_life_send_time_key] = send_time;
 
     var self_update_result = server.UpdateUserData({
-        PlayFabId : sender_id,
-        Data : self_data,
+        PlayFabId: sender_id,
+        Data: self_data,
         Permission: "Public"
     });
 
-    log.info("self_update_result: " + self_update_result);
-
-    return { status: 0};
+    return { status: 0, data_version: self_update_result.data.DataVersion };
 }
