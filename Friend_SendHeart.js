@@ -21,28 +21,24 @@ handlers.SendHeart = function(args) {
     for (var i = 0; i < receiver_ids.length; i++) {
         var receiver_id = receiver_ids[i];
 
-        if (i == 0) {
-            receiver_ids_str = receiver_id;
-        } else {
-            receiver_ids_str = receiver_ids_str + "," + receiver_id;
-        }
-
-        var heart_send_to_result = server.GetUserData({
+        var heart_receive_from_result = server.GetUserData({
             PlayFabId: receiver_id,
             Keys: [heart_receive_from_key]
         });
-        var heart_send_to_data = heart_send_to_result.Data[heart_receive_from_key];
-        var heart_send_to;
+        var heart_receive_from_data = heart_receive_from_result.Data[heart_receive_from_key];
+        var heart_receive_from;
 
-        if (heart_send_to_data == null) {
-            heart_send_to = sender_id;
+        if (heart_receive_from_data == null) {
+            heart_receive_from = JSON.stringify([sender_id]);
         } else {
-            heart_send_to = heart_send_to_data.Value + "," + sender_id
+            var heart_receive_from_list = JSON.parse(heart_receive_from_data.Value);
+            heart_receive_from_list.push(sender_id);
+            heart_receive_from = JSON.stringify(heart_receive_from_list);
         }
         // log.info("i: " + i + "heart_send_to: " + heart_send_to);
 
         var data = {};
-        data[heart_receive_from_key] = heart_send_to;
+        data[heart_receive_from_key] = heart_receive_from;
 
         var update_result = server.UpdateUserData({
             PlayFabId: receiver_id,
