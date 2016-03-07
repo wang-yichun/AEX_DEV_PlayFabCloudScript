@@ -27,9 +27,9 @@ handlers.GetLeaderboardEx = function(args) {
             Keys: [stage_info_key]
 		});
 		
-		// var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
+		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
         
-        log.info(stage_info_result);
+        log.info(stage_info_data_value);
 
         // var stage_info = JSON.parse(stage_info_data_value);
 
