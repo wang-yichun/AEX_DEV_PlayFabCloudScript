@@ -22,14 +22,14 @@ handlers.GetLeaderboardEx = function(args) {
 	for (int i = 0; i < lb.length, i++) {
 		var user_item = lb[i];
 
-		var stage_info_result = server.GetUserData({
-			PlayFabId: user_item.PlayFabId,
-            Keys: [stage_info_key]
-		});
+		// var stage_info_result = server.GetUserData({
+		// 	PlayFabId: user_item.PlayFabId,
+  //           Keys: [stage_info_key]
+		// });
 		
-		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
+		// var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
         
-        log.info(stage_info_data_value);
+        log.info(user_item);
 
         // var stage_info = JSON.parse(stage_info_data_value);
 
