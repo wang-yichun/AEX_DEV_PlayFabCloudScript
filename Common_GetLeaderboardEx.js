@@ -31,8 +31,8 @@ handlers.GetLeaderboardEx = function(args) {
         
         log.info(stage_info_data_value);
 
-        // var stage_info = JSON.parse(stage_info_data_value);
+        var stage_info = JSON.parse(stage_info_data_value);
 
-        // log.info(stage_info[0].LineLevel);
+        log.info(stage_info[0].LineLevel);
 	}
 }
