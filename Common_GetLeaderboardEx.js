@@ -5,11 +5,30 @@
 
 handlers.GetLeaderboardEx = function(args) {
 	
+	var level_id = "level_001";
+	var score_key = level_id + "_user_stat_score";
+	var stage_info_key = level_id + "_user_stat_info_list";
+
 	var result = server.GetLeaderboard({
-		StatisticName: "level_001_user_stat_score",
+		StatisticName: score_key,
 		StartPosition: 1,
 		MaxResultsCount: 10
 	});
 
-	log.info(result);
+	var lb = result.Leaderboard;
+
+	for (int i = 0; i < result.Leaderboard.Length, i++) {
+		var user_item = result.Leaderboard[i];
+
+		var stage_info_result = server.GetUserData({
+			PlayFabId: user_item.PlayFabId,
+            Keys: [stage_info_key]
+		});
+		
+		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
+        
+        var stage_info = JSON.parse(stage_info_data_value);
+
+        log.info(stage_info[0].LineLevel);
+	}
 }
