@@ -19,7 +19,7 @@ handlers.GetLeaderboardEx = function(args) {
 
 	// log.info(lb[0]);
 
-	for (int i = 0; i < lb.length; i++) {
+	for (var i = 0; i < lb.length; i++) {
 		var user_item = lb[i];
 
 		// var stage_info_result = server.GetUserData({
