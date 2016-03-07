@@ -17,17 +17,17 @@ handlers.GetLeaderboardEx = function(args) {
 
 	var lb = result.Leaderboard;
 
-	for (int i = 0; i < result.Length, i++) {
-		var user_item = result[i];
+	for (int i = 0; i < lb.Length, i++) {
+		var user_item = lb[i];
 
-		// var stage_info_result = server.GetUserData({
-		// 	PlayFabId: user_item.PlayFabId,
-  //           Keys: [stage_info_key]
-		// });
+		var stage_info_result = server.GetUserData({
+			PlayFabId: user_item.PlayFabId,
+            Keys: [stage_info_key]
+		});
 		
-		// var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
+		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
         
-        log.info(user_item);
+        log.info(stage_info_data_value);
 
         // var stage_info = JSON.parse(stage_info_data_value);
 
