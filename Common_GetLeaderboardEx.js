@@ -28,11 +28,11 @@ handlers.GetLeaderboardEx = function(args) {
 		});
 		
 		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
-        
-        log.info(stage_info_data_value);
 
         var stage_info = JSON.parse(stage_info_data_value);
 
-        log.info(stage_info[0].LineLevel);
+        user_item["LineLevel"] = stage_info[0].LineLevel;
+
+        log.info(user_item);
 	}
 }
