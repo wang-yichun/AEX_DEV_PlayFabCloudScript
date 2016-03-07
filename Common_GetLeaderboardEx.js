@@ -11,5 +11,5 @@ handlers.GetLeaderboardEx = function(args) {
 		MaxResultsCount: 10
 	});
 
-	log.info(result.data.Leaderboard);
+	log.info(result);
 }
