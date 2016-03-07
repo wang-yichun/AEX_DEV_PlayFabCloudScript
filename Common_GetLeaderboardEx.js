@@ -17,7 +17,7 @@ handlers.GetLeaderboardEx = function(args) {
 
 	var lb = result.Leaderboard;
 
-	log.info(lb);
+	log.info(JSON.parse(lb));
 
 	// for (int i = 0; i < lb.Length, i++) {
 	// 	var user_item = lb[i];
