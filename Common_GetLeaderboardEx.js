@@ -12,7 +12,7 @@ handlers.GetLeaderboardEx = function(args) {
 	var result = server.GetLeaderboard({
 		StatisticName: score_key,
 		StartPosition: 1,
-		MaxResultsCount: 10
+		MaxResultsCount: 1
 	});
 
 	var lb = result.Leaderboard;
@@ -27,8 +27,10 @@ handlers.GetLeaderboardEx = function(args) {
 		
 		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
         
-        var stage_info = JSON.parse(stage_info_data_value);
+        log.info(stage_info_data_value);
 
-        log.info(stage_info[0].LineLevel);
+        // var stage_info = JSON.parse(stage_info_data_value);
+
+        // log.info(stage_info[0].LineLevel);
 	}
 }
