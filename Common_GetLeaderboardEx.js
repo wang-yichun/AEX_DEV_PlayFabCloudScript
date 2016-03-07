@@ -3,7 +3,7 @@
 // return: {status = 0:成功发送 1:失败}
 //
 
-handles.GetLeaderboardEx = function(args) {
+handlers.GetLeaderboardEx = function(args) {
 	
 	var result = server.GetLeaderboard({
 		StatisticName: "level_001_user_stat_score",
