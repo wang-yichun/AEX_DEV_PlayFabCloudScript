@@ -17,8 +17,10 @@ handlers.GetLeaderboardEx = function(args) {
 
 	var lb = result.Leaderboard;
 
-	for (int i = 0; i < result.Leaderboard.Length, i++) {
-		var user_item = result.Leaderboard[i];
+	log.info(lb);
+
+	// for (int i = 0; i < result.Leaderboard.Length, i++) {
+	// 	var user_item = result.Leaderboard[i];
 
 		// var stage_info_result = server.GetUserData({
 		// 	PlayFabId: user_item.PlayFabId,
@@ -32,5 +34,5 @@ handlers.GetLeaderboardEx = function(args) {
         // var stage_info = JSON.parse(stage_info_data_value);
 
         // log.info(stage_info[0].LineLevel);
-	}
+	// }
 }
