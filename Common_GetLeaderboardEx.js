@@ -5,7 +5,10 @@
 
 handlers.GetLeaderboardEx = function(args) {
 	
-	var level_id = "level_001";
+	var level_id = args.level_id;
+	var start_position = args.start_position;
+	var max_results_count = args.max_results_count;
+
 	var score_key = level_id + "_user_stat_score";
 	var stage_info_key = level_id + "_user_stat_info_list";
 
