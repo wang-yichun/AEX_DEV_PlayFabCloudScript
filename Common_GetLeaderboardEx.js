@@ -14,8 +14,8 @@ handlers.GetLeaderboardEx = function(args) {
 
     var result = server.GetLeaderboard({
         StatisticName: score_key,
-        StartPosition: 1,
-        MaxResultsCount: 10
+        StartPosition: start_position,
+        MaxResultsCount: max_results_count
     });
 
     var lb = result.Leaderboard;
