@@ -4,38 +4,41 @@
 //
 
 handlers.GetLeaderboardEx = function(args) {
-	
-	var level_id = args.level_id;
-	var start_position = args.start_position;
-	var max_results_count = args.max_results_count;
 
-	var score_key = level_id + "_user_stat_score";
-	var stage_info_key = level_id + "_user_stat_info_list";
+    var level_id = args.level_id;
+    var start_position = args.start_position;
+    var max_results_count = args.max_results_count;
 
-	var result = server.GetLeaderboard({
-		StatisticName: score_key,
-		StartPosition: 1,
-		MaxResultsCount: 10
-	});
+    var score_key = level_id + "_user_stat_score";
+    var stage_info_key = level_id + "_user_stat_info_list";
 
-	var lb = result.Leaderboard;
+    var result = server.GetLeaderboard({
+        StatisticName: score_key,
+        StartPosition: 1,
+        MaxResultsCount: 10
+    });
 
-	// log.info(lb[0]);
+    var lb = result.Leaderboard;
 
-	for (var i = 0; i < lb.length; i++) {
-		var user_item = lb[i];
+    for (var i = 0; i < lb.length; i++) {
+        var user_item = lb[i];
 
-		var stage_info_result = server.GetUserData({
-			PlayFabId: user_item.PlayFabId,
-            Keys: [stage_info_key]
-		});
-		
-		var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
+        try {
+            var stage_info_result = server.GetUserData({
+                PlayFabId: user_item.PlayFabId,
+                Keys: [stage_info_key]
+            });
 
-        var stage_info = JSON.parse(stage_info_data_value);
+            var stage_info_data_value = stage_info_result.Data[stage_info_key].Value;
 
-        user_item["LineLevel"] = stage_info[0].LineLevel;
-	}
+            var stage_info = JSON.parse(stage_info_data_value);
 
-	return lb;
+            user_item["LineLevel"] = stage_info[0].LineLevel;
+        } catch (err) {
+            log.error("get stage info error: " + user_item.PlayFabId);
+            user_item["LineLevel"] = 0;
+        }
+    }
+
+    return lb;
 }
