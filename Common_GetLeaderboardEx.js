@@ -34,5 +34,5 @@ handlers.GetLeaderboardEx = function(args) {
         user_item["LineLevel"] = stage_info[0].LineLevel;
 	}
 
-	log.info(lb);
+	return lb;
 }
