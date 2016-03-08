@@ -32,7 +32,7 @@ handlers.GetLeaderboardEx = function(args) {
         var stage_info = JSON.parse(stage_info_data_value);
 
         user_item["LineLevel"] = stage_info[0].LineLevel;
-
-        log.info(user_item);
 	}
+
+	log.info(lb);
 }
