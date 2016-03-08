@@ -23,10 +23,12 @@ handlers.GetLineLevelByIDs = function(args) {
         });
 
         var stage_info_json = result.Data[stage_info_key].Value;
+        var stage_info = JSON.parse(stage_info_json);
+        var line_level = stage_info[0].LineLevel;
 
         var response_item = {
             PlayFabId: playfab_id,
-            LineLevel: stage_info_json
+            LineLevel: line_level
         }
 
         response_list.push(response_item);
