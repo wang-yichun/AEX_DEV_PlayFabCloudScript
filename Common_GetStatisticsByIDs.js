@@ -11,6 +11,8 @@ handlers.GetStatisticsByIDs = function(args) {
     var score_key = level_id + "_user_stat_score";
     var stage_info_key = level_id + "_user_stat_info_list";
 
+    var response_list = [];
+
     for (var i = 0; i < id_list.length; i++) {
         var playfab_id = id_list[i];
         var result = server.GetPlayerStatistics({
@@ -20,6 +22,8 @@ handlers.GetStatisticsByIDs = function(args) {
             ]
         });
 
-        log.info(result);
+        response_list.push(result);
     }
+
+    return response_list;
 }
