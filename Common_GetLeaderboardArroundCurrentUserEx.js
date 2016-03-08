@@ -3,18 +3,17 @@
 // [{"PlayFabId":"AA25328A8D0031FA","DisplayName":"painache","StatValue":1355500,"Position":0,"LineLevel":1},
 //  {"PlayFabId":"9241B8F15709F6C6","DisplayName":"feng_bcdeaa42","StatValue":1355100,"Position":1,"LineLevel":1}]
 
-handlers.GetLeaderboardEx = function(args) {
+handlers.GetLeaderboardAroundCurrentUserEx = function(args) {
 
     var level_id = args.level_id;
-    var start_position = args.start_position;
     var max_result_count = args.max_result_count;
 
     var score_key = level_id + "_user_stat_score";
     var stage_info_key = level_id + "_user_stat_info_list";
 
-    var result = server.GetLeaderboard({
+    var result = server.GetLeaderboardAroundUser({
         StatisticName: score_key,
-        StartPosition: start_position,
+        PlayFabId: currentPlayerId,
         MaxResultsCount: max_result_count
     });
 
