@@ -7,7 +7,7 @@ handlers.GetLeaderboardEx = function(args) {
 
     var level_id = args.level_id;
     var start_position = args.start_position;
-    var max_results_count = args.max_results_count;
+    var max_result_count = args.max_result_count;
 
     var score_key = level_id + "_user_stat_score";
     var stage_info_key = level_id + "_user_stat_info_list";
@@ -15,7 +15,7 @@ handlers.GetLeaderboardEx = function(args) {
     var result = server.GetLeaderboard({
         StatisticName: score_key,
         StartPosition: start_position,
-        MaxResultsCount: max_results_count
+        MaxResultsCount: max_result_count
     });
 
     var lb = result.Leaderboard;
