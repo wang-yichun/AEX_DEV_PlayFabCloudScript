@@ -33,9 +33,11 @@ handlers.GetLeaderboardAroundCurrentUserEx = function(args) {
             var stage_info = JSON.parse(stage_info_data_value);
 
             user_item["LineLevel"] = stage_info[0].LineLevel;
+            user_item["CurrentStar"] = stage_info[0].CurrentStar;
         } catch (err) {
             log.error("get stage info error: " + user_item.PlayFabId);
             user_item["LineLevel"] = 0;
+            user_item["CurrentStar"] = 0;
         }
     }
 
