@@ -10,6 +10,7 @@ handlers.GetLineLevelByIDs = function(args) {
 
     // var score_key = level_id + "_user_stat_score";
     var stage_info_key = level_id + "_user_stat_info_list";
+    var snail_skin_key = "SnailSkin";
 
     var response_list = [];
 
@@ -18,7 +19,7 @@ handlers.GetLineLevelByIDs = function(args) {
         var result = server.GetUserData({
             PlayFabId: playfab_id,
             Keys: [
-                stage_info_key
+                stage_info_key, snail_skin_key
             ]
         });
 
@@ -26,11 +27,16 @@ handlers.GetLineLevelByIDs = function(args) {
         var stage_info = JSON.parse(stage_info_json);
         var line_level = stage_info[0].LineLevel;
         var current_star = stage_info[0].CurrentStar;
+        var snail_skin = 0;
+        if (result.Data[snail_skin_key] != null) {
+            snail_skin = result.Data[snail_skin_key].Value;
+        }
 
         var response_item = {
             PlayFabId: playfab_id,
             LineLevel: line_level,
-            CurrentStar: current_star
+            CurrentStar: current_star,
+            SnailSkin: snail_skin
         }
 
         response_list.push(response_item);
