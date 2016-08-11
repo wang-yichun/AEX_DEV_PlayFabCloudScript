@@ -10,7 +10,7 @@ handlers.GetRecordInfoForMe = function (args) {
 
 	var like_key = stage_id + "_user_rec_like";
 	var s3_key = stage_id + "_user_rec_data_s3_key";
-	var stat_info_key = stage_id + "_user_stat_info_list";
+	//var stat_info_key = stage_id + "_user_stat_info_list";
 
 	var user_account_info = server.GetUserAccountInfo({
 		PlayFabId: playfab_id
@@ -21,7 +21,7 @@ handlers.GetRecordInfoForMe = function (args) {
 
 	var user_data = server.GetUserData({
 		PlayFabId: playfab_id,
-		Keys: [like_key, s3_key, stat_info_key]
+		Keys: [like_key, s3_key/*,stat_info_key*/]
 	});
 
 	var s3_value_data = user_data.Data[s3_key];
@@ -66,14 +66,14 @@ handlers.GetRecordInfoForMe = function (args) {
 		already_passed = true;
 	}
 
-	var stat_info_data = user_data.Data[stat_info_key];
-	var stat_info = null;
+	// var stat_info_data = user_data.Data[stat_info_key];
+	// var stat_info = null;
 
-	if (stat_info_data == null) {
-		stat_info = "";
-	} else {
-		stat_info = stat_info_data.Value;
-	}
+	// if (stat_info_data == null) {
+	// 	stat_info = "";
+	// } else {
+	// 	stat_info = stat_info_data.Value;
+	// }
 
 	return {
 		s3_value: s3_value,
@@ -81,7 +81,7 @@ handlers.GetRecordInfoForMe = function (args) {
 		is_like: is_like_result.result,
 		is_buy: is_buy_result.result,
 		is_passed: already_passed,
-		stat_info: stat_info,
+		// stat_info: stat_info,
 		display_name: display_name
 	};
 }
