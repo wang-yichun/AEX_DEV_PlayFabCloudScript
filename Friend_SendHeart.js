@@ -12,10 +12,15 @@ handlers.SendHeart = function(args) {
     var sender_id = args.sender_id;
     var receiver_ids = args.receiver_ids;
     var send_time = args.send_time;
+    
+    var push_subject = args.push_subject;
+    var push_message = args.push_message;
 
     log.info("sender_id: " + sender_id);
     log.info("receiver_ids: " + receiver_ids);
     log.info("send_time: " + send_time);
+    log.info("push_subject: " + push_subject);
+    log.info("push_message: " + push_message);
 
     // update receivers
     for (var i = 0; i < receiver_ids.length; i++) {
@@ -46,6 +51,14 @@ handlers.SendHeart = function(args) {
             Permission: "Public"
         });
     };
+
+    if (push_message != null || push_message != "") {
+        var send_push_args = {};
+        send_push_args.PlayFabIds = receiver_ids;
+        send_push_args.Subject = push_subject;
+        send_push_args.Msg = push_message;
+        SendPushHearts(send_push_args);
+    }
 
     // update self
     var self_data_result = server.GetUserData({
