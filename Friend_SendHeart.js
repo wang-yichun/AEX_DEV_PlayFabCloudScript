@@ -15,9 +15,9 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     var language = result.Data["language"];
     var msg = "";
     
-    // if (language == null || language.Value == ""){
-    //     log.info("language is null");
-    // } else {
+    if (language == null || language.Value == ""){
+        log.info("language is null");
+    } else {
     //     log.info("language: " + language.Value);
     
     //     if (language.Value == "German"){
@@ -29,7 +29,7 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     //     } else {
     //         msg = "Received a heart from your friend!";
     //     }
-    // }
+    }
     return msg;
 }
 
