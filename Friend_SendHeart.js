@@ -20,6 +20,8 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     } else {
         if (language.Value == "German"){
             msg = "dein freund hat ein herz für sie!";
+        } else if (language.Value == "Chinese"){
+            msg = "你的好友送给你了一颗心!";
         }
     //     log.info("language: " + language.Value);
     
