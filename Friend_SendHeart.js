@@ -19,7 +19,7 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
         log.info("language is null");
     } else {
         if (language.Value == "German"){
-            
+            msg = "dein freund hat ein herz für sie!";
         }
     //     log.info("language: " + language.Value);
     
