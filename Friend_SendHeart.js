@@ -11,25 +11,25 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
         PlayFabId: playfab_id,
         Keys: ["language"]
     });
+    
     var language = result.Data["language"];
-
-    if (language == null || language.Value == ""){
-        log.info("language is null");
-    }
-    log.info("language: " + language.Value);
-
     var msg = "";
     
-    if (language.Value == "German"){
-        msg = "dein freund hat ein herz für sie!";
-    } else if (language.Value == "Chinese") {
-        msg = "你的好友送给你了一颗心!";
-    } else if (language.Value == "Chinese (Hong Kong)"){
-        msg = "你的朋友送來了一顆心!";
-    } else{
-        msg = "Received a heart from your friend!";
-    }
-
+    // if (language == null || language.Value == ""){
+    //     log.info("language is null");
+    // } else {
+    //     log.info("language: " + language.Value);
+    
+    //     if (language.Value == "German"){
+    //         msg = "dein freund hat ein herz für sie!";
+    //     } else if (language.Value == "Chinese") {
+    //         msg = "你的好友送给你了一颗心!";
+    //     } else if (language.Value == "Chinese (Hong Kong)") {
+    //         msg = "你的朋友送來了一顆心!";
+    //     } else {
+    //         msg = "Received a heart from your friend!";
+    //     }
+    // }
     return msg;
 }
 
