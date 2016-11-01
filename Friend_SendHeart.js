@@ -18,6 +18,9 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     if (language == null || language.Value == ""){
         log.info("language is null");
     } else {
+        if (language.Value == "German"){
+            
+        }
     //     log.info("language: " + language.Value);
     
     //     if (language.Value == "German"){
