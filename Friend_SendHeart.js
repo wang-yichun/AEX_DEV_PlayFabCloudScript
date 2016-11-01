@@ -3,7 +3,7 @@
 // return: {status = 0:成功发送 1:失败}
 //
 
-handlers.PrintPlayerLanguage = function(args) {
+handlers.GetPlayerReceiveHeartMessage = function(args) {
     var playfab_id = args.playfab_id;
     log.info("playfab_id: " + playfab_id);
 
@@ -17,6 +17,19 @@ handlers.PrintPlayerLanguage = function(args) {
         log.info("language is null");
     }
     log.info("language: " + language.Value);
+
+    var msg = "";
+    
+    if (language.Value == "German")
+        msg = "dein freund hat ein herz für sie!";
+    else if (language.Value == "Chinese")
+        msg = "你的好友送给你了一颗心!";
+    else if (language.Value == "Chinese (Hong Kong)")
+        msg = "你的朋友送來了一顆心!";
+    else
+        msg = "Received a heart from your friend!";
+    
+    return msg;
 }
 
 handlers.SendHeart = function(args) {
