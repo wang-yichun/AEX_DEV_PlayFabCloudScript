@@ -3,6 +3,19 @@
 // return: {status = 0:成功发送 1:失败}
 //
 
+handlers.PrintPlayerLanguage = function(args) {
+    var playfab_id = args.playfab_id;
+    log.info("playfab_id: " + playfab_id);
+
+    var result = server.GetUserData({
+        PlayFabId: playfab_id,
+        Keys: ["language"]
+    });
+    var language = result.Data["language"];
+
+    log.info("language: " + language);
+}
+
 handlers.SendHeart = function(args) {
 
     var heart_receive_from_key = "friend_heart_receive_from";
