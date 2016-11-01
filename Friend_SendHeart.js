@@ -19,7 +19,9 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     } else {
         if (language.Value == "German") {
             return { language : "dein freund hat ein herz für sie!" };
-        } 
+        } else if (language.Value == "Chinese") {
+            return { language : "你的好友送给你了一颗心!" };
+        }
         // if (language.Value == "Chinese"){
         //     return "你的好友送给你了一颗心!";
         // } else if (language.Value =="Chinese (Hong Kong)"){
