@@ -13,26 +13,19 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     });
     
     var language = result.Data["language"];
-    var msg = "";
     
     if (language == null || language.Value == ""){
         log.info("language is null");
     } else {
         if (language.Value == "German"){
+            return "dein freund hat ein herz für sie!";
+        } else if (language.Value == "Chinese"){
+            return "你的好友送给你了一颗心!";
+        } else if (language.Value =="Chinese (Hong Kong)"){
+            return "你的朋友送來了一顆心!";
         }
-    //     log.info("language: " + language.Value);
-    
-    //     if (language.Value == "German"){
-    //         msg = "dein freund hat ein herz für sie!";
-    //     } else if (language.Value == "Chinese") {
-    //         msg = "你的好友送给你了一颗心!";
-    //     } else if (language.Value == "Chinese (Hong Kong)") {
-    //         msg = "你的朋友送來了一顆心!";
-    //     } else {
-    //         msg = "Received a heart from your friend!";
-    //     }
     }
-    return msg;
+    return "Received a heart from your friend!";
 }
 
 handlers.SendHeart = function(args) {
