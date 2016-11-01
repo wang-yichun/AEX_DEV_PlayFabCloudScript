@@ -21,12 +21,9 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
             return { language : "dein freund hat ein herz für sie!" };
         } else if (language.Value == "Chinese") {
             return { language : "你的好友送给你了一颗心!" };
+        } else if (language.Value =="Chinese (Hong Kong)"){
+            return { language : "你的朋友送來了一顆心!" }
         }
-        // if (language.Value == "Chinese"){
-        //     return "你的好友送给你了一颗心!";
-        // } else if (language.Value =="Chinese (Hong Kong)"){
-        //     return "你的朋友送來了一顆心!";
-        // }
     }
     return { language : "Received a heart from your friend!" };
 }
