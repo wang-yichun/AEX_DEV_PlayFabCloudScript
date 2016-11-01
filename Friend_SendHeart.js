@@ -76,7 +76,7 @@ handlers.SendHeart = function(args) {
             Permission: "Public"
         });
     };
-
+    
     if (push_message != null || push_message != "") {
         var send_push_args = {};
         send_push_args.PlayFabIds = receiver_ids;
