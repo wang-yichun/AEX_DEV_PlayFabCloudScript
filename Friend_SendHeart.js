@@ -13,6 +13,9 @@ handlers.PrintPlayerLanguage = function(args) {
     });
     var language = result.Data["language"];
 
+    if (language == null || language.Value == ""){
+        log.info("language is null");
+    }
     log.info("language: " + language);
 }
 
