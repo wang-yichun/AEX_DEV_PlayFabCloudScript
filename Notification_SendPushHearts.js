@@ -7,7 +7,7 @@ handlers.SendPushHearts = function (args)
 	for (var i = 0; i < playfab_ids.length; i++){
 		var playfab_id = playfab_ids[i];
 		
-		var msg_text = GetPlayerReceiveHeartMessage({
+		var msg_text = handlers.GetPlayerReceiveHeartMessage({
         	PlayFabId: playfab_id
     	}).language;
 
