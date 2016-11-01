@@ -16,7 +16,7 @@ handlers.PrintPlayerLanguage = function(args) {
     if (language == null || language.Value == ""){
         log.info("language is null");
     }
-    log.info("language: " + language);
+    log.info("language: " + language.Value);
 }
 
 handlers.SendHeart = function(args) {
