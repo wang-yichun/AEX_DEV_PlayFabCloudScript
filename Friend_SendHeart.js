@@ -20,15 +20,16 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
 
     var msg = "";
     
-    if (language.Value == "German")
+    if (language.Value == "German"){
         msg = "dein freund hat ein herz für sie!";
-    else if (language.Value == "Chinese")
+    } else if (language.Value == "Chinese") {
         msg = "你的好友送给你了一颗心!";
-    else if (language.Value == "Chinese (Hong Kong)")
+    } else if (language.Value == "Chinese (Hong Kong)"){
         msg = "你的朋友送來了一顆心!";
-    else
+    } else{
         msg = "Received a heart from your friend!";
-    
+    }
+
     return msg;
 }
 
