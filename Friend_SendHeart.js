@@ -28,6 +28,7 @@ handlers.GetPlayerReceiveHeartMessage = function(args) {
     return { language : "Received a heart from your friend!" };
 }
 
+var handlers.SendPushHearts;
 handlers.SendHeart = function(args) {
 
     var heart_receive_from_key = "friend_heart_receive_from";
