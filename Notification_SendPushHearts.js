@@ -18,6 +18,7 @@ handlers.SendPushHearts = function (args)
 	    if (language == null || language.Value == ""){
 	        log.info("language is null");
 	    } else {
+	    	log.info("language is " + language.Value);
 	        if (language.Value == "German") {
 	            msg_text = "dein freund hat ein herz für sie!";
 	        } else if (language.Value == "Chinese") {
@@ -27,14 +28,14 @@ handlers.SendPushHearts = function (args)
 	        }
 	    }
 
-		var request = {};
-		request.Recipient = playfab_id;
-		request.Message = msg_text;
-		request.Subject = subject;
+		var spn_req = {};
+		spn_req.Recipient = playfab_id;
+		spn_req.Message = msg_text;
+		spn_req.Subject = subject;
 
 		log.info("Recipient: " + playfab_id);
 		log.info("Message: " + msg_text);
-		log.info("Subject: " + msg_text);
-		server.SendPushNotification(request);
+		log.info("Subject: " + subject);
+		server.SendPushNotification(spn_req);
 	}
 }
