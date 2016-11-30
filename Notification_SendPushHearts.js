@@ -33,9 +33,11 @@ handlers.SendPushHearts = function (args)
 		spn_req.Message = msg_text;
 		spn_req.Subject = subject;
 
-		log.info("Recipient: " + playfab_id);
-		log.info("Message: " + msg_text);
-		log.info("Subject: " + subject);
-		server.SendPushNotification(spn_req);
+		log.info("SendPushNotification params: " + JSON.stringify(spn_req));
+		try {
+			server.SendPushNotification(spn_req);
+		} catch (err) {
+			log.info("ignore err: " + JSON.stringify(err));
+		}
 	}
 }
