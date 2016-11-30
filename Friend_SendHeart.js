@@ -77,7 +77,7 @@ handlers.SendHeart = function(args) {
         });
     };
     
-    if (push_message != null || push_message != "") {
+    if (push_message != null && push_message != "") {
         var send_push_args = {};
         send_push_args.PlayFabIds = receiver_ids;
         send_push_args.Subject = push_subject;
