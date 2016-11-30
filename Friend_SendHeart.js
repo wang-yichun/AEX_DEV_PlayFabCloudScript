@@ -82,7 +82,7 @@ handlers.SendHeart = function(args) {
         send_push_args.PlayFabIds = receiver_ids;
         send_push_args.Subject = push_subject;
         send_push_args.Msg = push_message;
-        SendPushHearts(send_push_args);
+        handlers.SendPushHearts(send_push_args);
     }
 
     // update self
