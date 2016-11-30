@@ -30,7 +30,9 @@ handlers.SendPushHearts = function (args)
 		var request = {};
 		request.Recipient = playfab_id;
 		request.Message = msg_text;
-		// request.Subject = subject;
+		request.Subject = subject;
+
+		log.info(JSON.stringify(request));
 		server.SendPushNotification(request);
 	}
 }
