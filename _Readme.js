@@ -4,5 +4,7 @@
 // CloudScript
 //
 // Managed via GitHub
+//
 // https://github.com/wang-yichun/AEX_PlayFabCloudScript.git
+// https://github.com/wang-yichun/AEX_DEV_PlayFabCloudScript.git
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
