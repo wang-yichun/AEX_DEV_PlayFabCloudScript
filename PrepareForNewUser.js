@@ -25,25 +25,14 @@ handlers.PrepareForNewUser = function (args) {
 	server.UpdateUserData({
 		PlayFabId: currentPlayerId,
 		Data: {
-			GA1: 0,
-			GA2: 0,
 			GA3: 0,
 			GAPower: 0,
-			GACreatingSize: "0",
-			GB1: 0,
-			GB2: 0,
 			GB3: 0,
 			GBPower: 0,
-			GBCreatingSize: "0",
-			GC1: 0,
-			GC2: 0,
 			GC3: 0,
-			GCPower: 0,
-			GCCreatingSize: "0",
-			GX: 0,
-			StageInfoDataVersion: 0
+			GCPower: 0
 		},
-		Permission: "Private"
+		Permission: "Public"
 	});
 	
 	server.UpdateUserReadOnlyData({
