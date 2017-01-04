@@ -15,18 +15,18 @@ handlers.SendPushLike = function (args)
 	    var language = result.Data["language"];
 	    var msg_text = "Your video has just be liked!";
 
-	    if (language == null || language.Value == ""){
-	        log.info("language is null");
-	    } else {
-	    	log.info("language is " + language.Value);
-	        if (language.Value == "German") {
-	            msg_text = "Video juaj ka qenë vetëm i pëlqente!";
-	        } else if (language.Value == "Chinese") {
-	            msg_text = "有人为你的录像点赞了.";
-	        } else if (language.Value =="Chinese (Hong Kong)"){
-	            msg_text = "有人為你的錄像點贊了.";
-	        }
-	    }
+	    // if (language == null || language.Value == ""){
+	    //     log.info("language is null");
+	    // } else {
+	    // 	log.info("language is " + language.Value);
+	    //     if (language.Value == "German") {
+	    //         msg_text = "Video juaj ka qenë vetëm i pëlqente!";
+	    //     } else if (language.Value == "Chinese") {
+	    //         msg_text = "有人为你的录像点赞了.";
+	    //     } else if (language.Value =="Chinese (Hong Kong)"){
+	    //         msg_text = "有人為你的錄像點贊了.";
+	    //     }
+	    // }
 
 		var spn_req = {};
 		spn_req.Recipient = playfab_id;
