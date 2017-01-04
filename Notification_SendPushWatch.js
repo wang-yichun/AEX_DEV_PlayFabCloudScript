@@ -1,4 +1,4 @@
-handlers.SendPushLike = function (args)
+handlers.SendPushWatch = function (args)
 {
 	var message = args.Msg == undefined || args.Msg == null ? "" : args.Msg;
 	var subject = args.Subject == undefined || args.Subject == null ? "" : args.Subject;
@@ -13,18 +13,18 @@ handlers.SendPushLike = function (args)
 	    });
 	    
 	    var language = result.Data["language"];
-	    var msg_text = "Your replay has just be liked!";
+	    var msg_text = "Your replay has just been watched!";
 
 	    if (language == null || language.Value == ""){
 	        log.info("language is null");
 	    } else {
 	    	log.info("language is " + language.Value);
 	        if (language.Value == "German") {
-	            msg_text = "Video juaj ka qenë vetëm i pëlqente!";
+	            msg_text = "Ihr Video wurde gerade gesehen!";
 	        } else if (language.Value == "Chinese") {
-	            msg_text = "有人为你的录像点赞了.";
+	            msg_text = "有人看了你的录像";
 	        } else if (language.Value =="Chinese (Hong Kong)"){
-	            msg_text = "有人為你的錄像點贊了.";
+	            msg_text = "有人看了你的錄像.";
 	        }
 	    }
 
@@ -33,7 +33,7 @@ handlers.SendPushLike = function (args)
 		spn_req.Message = msg_text;
 		spn_req.Subject = subject;
 
-		log.info("SendPushLike params: " + JSON.stringify(spn_req));
+		log.info("SendPushWatch params: " + JSON.stringify(spn_req));
 		try {
 			server.SendPushNotification(spn_req);
 		} catch (err) {
