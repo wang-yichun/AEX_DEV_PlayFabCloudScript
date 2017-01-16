@@ -13,18 +13,18 @@ handlers.SendPushHearts = function (args)
 	    });
 	    
 	    var language = result.Data["language"];
-	    var msg_text = "Received a heart from your friend!";
+	    var msg_text = "❤️Received a heart from your friend!";
 
 	    if (language == null || language.Value == ""){
 	        log.info("language is null");
 	    } else {
 	    	log.info("language is " + language.Value);
 	        if (language.Value == "German") {
-	            msg_text = "dein freund hat ein herz für sie!";
+	            msg_text = "❤️dein freund hat ein herz für sie!";
 	        } else if (language.Value == "Chinese") {
-	            msg_text = "你的好友送给你了一颗心!";
+	            msg_text = "❤️你的好友送给你了一颗心!";
 	        } else if (language.Value =="Chinese (Hong Kong)"){
-	            msg_text = "你的朋友送來了一顆心!";
+	            msg_text = "❤️你的朋友送來了一顆心!";
 	        }
 	    }
 
