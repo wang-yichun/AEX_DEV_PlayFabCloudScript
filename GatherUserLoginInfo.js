@@ -6,7 +6,7 @@ handlers.GatherUserLoginInfo = function (args, context) {
     // The event that triggered the action 
     // (https://api.playfab.com/playstream/docs/PlayStreamEventModels)
     var psEvent = context.playStreamEvent;
-    var location = psEvent.TriggeringEventData.Location;
+    var location = psEvent.Location;
 
     var locationJson = JSON.stringify(location);
 
