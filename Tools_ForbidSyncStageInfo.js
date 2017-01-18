@@ -1,6 +1,18 @@
 ////////////////////////////////////////////////
 // 阻止用户上传成绩到排行榜, 针对测试版本的老用户
 
+handlers.VersionToInteger = function(version_value){
+	var version_value_splited = version_value.split(".");
+	var version_value_int = parseInt(version_value_splited[0]) * 1000000;
+	if (version_value_splited.length > 1){
+		version_value_int = version_value_int + parseInt(version_value_splited[1] * 1000);
+	}
+	if (version_value_splited.length > 2){
+		version_value_int = version_value_int + parseInt(version_value_splited[2]);
+	}
+	return {result: version_value_int};
+}
+
 handlers.ForbidSyncStageInfo = function (args, context) {
 	// 获取用户版本:
 	var version_key = "version";
@@ -15,14 +27,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	} else {
 		version_value = version_data.Value;
 	}
-	var version_value_splited = version_value.split(".");
-	var version_value_int = parseInt(version_value_splited[0]) * 1000000;
-	if (version_value_splited.length > 1){
-		version_value_int = version_value_int + parseInt(version_value_splited[1] * 1000);
-	}
-	if (version_value_splited.length > 2){
-		version_value_int = version_value_int + parseInt(version_value_splited[2]);
-	}
+	version_value_int = handlers.VersionToInteger(version_value);
 
 	log.info("version_value_int: " + version_value_int);
 
@@ -41,5 +46,5 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	}
 	log.info("min_version_value: " + min_version_value);
 
-	return {status: 0};value
+	return {status: 0};
 }
