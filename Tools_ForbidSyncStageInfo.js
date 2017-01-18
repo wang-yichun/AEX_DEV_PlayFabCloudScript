@@ -21,13 +21,15 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	var title_data = server.GetTitleData({
 		Keys: [title_misctable_key]
 	});
-	var min_version_data = title_data.Data[title_misctable_key];
+	var MiscTable_data = title_data.Data[title_misctable_key];
+	var MiscTable_value;
 	var min_version_value;
-	if (min_version_data == null){
+	if (MiscTable_data == null){
 		return {status: 2}
 	} else {
-		log.info("min_version_data: " + JSON.stringify(min_version_data));
-		min_version_value = min_version_data.Value;
+		log.info("MiscTable_data: " + JSON.stringify(MiscTable_data));
+		var MiscTable_value = JSON.parse(min_version_data.Value);
+		min_version_value = MiscTable_value["PFStatisticsMinimumVersion"]["v0"];
 	}
 	log.info("min_version_value: " + min_version_value);
 
