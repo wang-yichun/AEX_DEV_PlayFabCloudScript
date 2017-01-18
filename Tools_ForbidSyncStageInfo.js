@@ -16,12 +16,12 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 		version_value = version_data.Value;
 	}
 	var version_value_splited = version_value.split(".");
-	var version_value_int = version_value_splited[0] * 1000000;
+	var version_value_int = parseInt(parseInt version_value_splited[0]) * 1000000;
 	if (version_value_splited.length > 1){
-		version_value_int = version_value_int + version_value_splited[1] * 1000;
+		version_value_int = version_value_int + parseInt(version_value_splited[1] * 1000);
 	}
 	if (version_value_splited.length > 2){
-		version_value_int = version_value_int + version_value_splited[2];
+		version_value_int = version_value_int + parseInt(version_value_splited[2]);
 	}
 
 	log.info("version_value_int: " + version_value_int);
