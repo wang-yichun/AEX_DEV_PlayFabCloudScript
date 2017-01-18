@@ -28,7 +28,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 		return {status: 2}
 	} else {
 		log.info("misctable_data: " + JSON.stringify(misctable_data));
-		var misctable_value = misctable_data.Value;
+		var misctable_value = JSON.parse(misctable_data);
 		min_version_value = misctable_value["PFStatisticsMinimumVersion"]["v0"];
 	}
 	log.info("min_version_value: " + min_version_value);
