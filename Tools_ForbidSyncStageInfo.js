@@ -15,7 +15,16 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	} else {
 		version_value = version_data.Value;
 	}
-	log.info("version_value: " + version_value);
+	var version_value_splited = version_value.split(".");
+	var version_value_int = version_value_splited[0] * 1000000;
+	if (version_value_splited.length > 1){
+		version_value_int = version_value_int + version_value_splited[1] * 1000;
+	}
+	if (version_value_splited.length > 2){
+		version_value_int = version_value_int + version_value_splited[2];
+	}
+
+	log.info("version_value_int: " + version_value_int);
 
 	var title_misctable_key = "MiscTable";
 	var title_data = server.GetTitleData({
