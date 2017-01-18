@@ -26,7 +26,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	if (min_version_data == null){
 		return {status: 2}
 	} else {
-		log.info("min_version_data: " + JSON.stringify(min_version_data);
+		log.info("min_version_data: " + JSON.stringify(min_version_data));
 		min_version_value = min_version_data.Value;
 	}
 	log.info("min_version_value: " + min_version_value);
