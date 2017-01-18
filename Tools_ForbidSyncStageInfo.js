@@ -27,7 +27,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	} else {
 		version_value = version_data.Value;
 	}
-	version_value_int = VersionToInteger(version_value);
+	var version_value_int = VersionToInteger(version_value);
 
 	log.info("version_value_int: " + version_value_int);
 
@@ -44,7 +44,8 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 		var misctable_value = JSON.parse(misctable_data);
 		min_version_value = misctable_value["PFStatisticsMinimumVersion"]["v0"];
 	}
-	log.info("min_version_value: " + min_version_value);
+	var min_version_int = VersionToInteger(min_version_value);
+	log.info("min_version_int: " + min_version_int);
 
 	return {status: 0};
 }
