@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////
 // 阻止用户上传成绩到排行榜, 针对测试版本的老用户
 
-handlers.VersionToInteger = function(version_value){
+var VersionToInteger = function(version_value){
 	var version_value_splited = version_value.split(".");
 	var version_value_int = parseInt(version_value_splited[0]) * 1000000;
 	if (version_value_splited.length > 1){
@@ -10,7 +10,7 @@ handlers.VersionToInteger = function(version_value){
 	if (version_value_splited.length > 2){
 		version_value_int = version_value_int + parseInt(version_value_splited[2]);
 	}
-	return {result: version_value_int};
+	return version_value_int;
 }
 
 handlers.ForbidSyncStageInfo = function (args, context) {
@@ -27,7 +27,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	} else {
 		version_value = version_data.Value;
 	}
-	version_value_int = handlers.VersionToInteger(version_value);
+	version_value_int = VersionToInteger(version_value);
 
 	log.info("version_value_int: " + version_value_int);
 
