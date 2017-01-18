@@ -22,16 +22,16 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 		Keys: [title_misctable_key]
 	});
 	var misctable_data = title_data.Data[title_misctable_key];
-	var MiscTable_value;
+	var misctable_value;
 	var min_version_value;
 	if (misctable_data == null){
 		return {status: 2}
 	} else {
 		log.info("misctable_data: " + JSON.stringify(misctable_data));
-		var MiscTable_value = JSON.parse(misctable_data.Value);
-		min_version_value = MiscTable_value["PFStatisticsMinimumVersion"]["v0"];
+		var misctable_value = misctable_data.Value;
+		min_version_value = misctable_value["PFStatisticsMinimumVersion"]["v0"];
 	}
 	log.info("min_version_value: " + min_version_value);
 
-	return {status: 0};
+	return {status: 0};value
 }
