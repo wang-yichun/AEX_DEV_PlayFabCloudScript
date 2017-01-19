@@ -49,6 +49,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 
 	if (version_value_int < min_version_int){
 		
+		var psEvent = context.playStreamEvent;
     	var statistic_name = psEvent.StatisticName;
 
     	server.UpdatePlayerStatistics({
