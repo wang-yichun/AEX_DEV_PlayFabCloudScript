@@ -48,7 +48,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	log.info("min_version_int: " + min_version_int);
 
 	if (version_value_int < min_version_int){
-
+		
 		return {status: 0};
 	}
 
