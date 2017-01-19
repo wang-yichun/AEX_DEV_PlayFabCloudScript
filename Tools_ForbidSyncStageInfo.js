@@ -32,6 +32,15 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	var version_data = user_data.Data[version_key];
 	var version_value; 
 	if (version_data == null) {
+		var updateResult = server.UpdatePlayerStatistics({
+    		PlayFabId : currentPlayerId,
+    		Statistics: [
+	    		{
+	    			StatisticName: statistic_name,
+	    			Value: -1
+	    		}
+    		]
+    	});
 		return {status: 1};
 	} else {
 		version_value = version_data.Value;
