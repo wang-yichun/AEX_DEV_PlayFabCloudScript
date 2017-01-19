@@ -34,15 +34,15 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	if (version_data == null) {
 		// 正式版发布时需要此处代码 ////////////
 		// 用户没有 version 标记时, 积分将无法上传
-		var updateResult = server.UpdatePlayerStatistics({
-    		PlayFabId : currentPlayerId,
-    		Statistics: [
-	    		{
-	    			StatisticName: statistic_name,
-	    			Value: -1
-	    		}
-    		]
-    	});
+		// var updateResult = server.UpdatePlayerStatistics({
+  //   		PlayFabId : currentPlayerId,
+  //   		Statistics: [
+	 //    		{
+	 //    			StatisticName: statistic_name,
+	 //    			Value: -1
+	 //    		}
+  //   		]
+  //   	});
     	// 到此为止 ////////////////////////////////
 		return {status: 1};
 	} else {
