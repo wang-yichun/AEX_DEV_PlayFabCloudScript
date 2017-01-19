@@ -14,6 +14,15 @@ var VersionToInteger = function(version_value){
 }
 
 handlers.ForbidSyncStageInfo = function (args, context) {
+
+	var psEvent = context.playStreamEvent;
+	var statistic_name = psEvent.StatisticName;
+
+	var old_value = psEvent.StatisticValue;
+	if (old_value == -1) {
+		return {status: 4};
+	}
+
 	// 获取用户版本:
 	var version_key = "version";
 	var user_data = server.GetUserData({
@@ -48,9 +57,6 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	log.info("min_version_int: " + min_version_int);
 
 	if (version_value_int < min_version_int){
-
-		var psEvent = context.playStreamEvent;
-    	var statistic_name = psEvent.StatisticName;
 
     	var updateResult = server.UpdatePlayerStatistics({
     		PlayFabId : currentPlayerId,
