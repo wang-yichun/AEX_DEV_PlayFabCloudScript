@@ -32,6 +32,8 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	var version_data = user_data.Data[version_key];
 	var version_value; 
 	if (version_data == null) {
+		// 正式版发布时需要此处代码 ////////////
+		// 用户没有 version 标记时, 积分将无法上传
 		var updateResult = server.UpdatePlayerStatistics({
     		PlayFabId : currentPlayerId,
     		Statistics: [
@@ -41,6 +43,7 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 	    		}
     		]
     	});
+    	// 到此为止 ////////////////////////////////
 		return {status: 1};
 	} else {
 		version_value = version_data.Value;
