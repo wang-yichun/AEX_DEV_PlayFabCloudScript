@@ -51,12 +51,12 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 
 		var psEvent = context.playStreamEvent;
     	var statistic_name = psEvent.StatisticName;
+    	var json_stat = new Object();
+    	json_stat[statistic_name] = -1;
 
     	var updateResult = server.UpdatePlayerStatistics({
     		PlayFabId : currentPlayerId,
-    		UserStatistics: {
-    			statistic_name: -1
-    		}
+    		UserStatistics: json_stat
     	});
 
 		return {status: 0, result: updateResult};
