@@ -49,6 +49,16 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 
 	if (version_value_int < min_version_int){
 		
+    	var statistic_name = psEvent.StatisticName;
+
+    	server.UpdatePlayerStatistics({
+    		PlayFabId : currentPlayerId,
+    		Statistics : [
+    			"StatisticName": statistic_name,
+    			"Value": -1
+    		]
+    	});
+
 		return {status: 0};
 	}
 
