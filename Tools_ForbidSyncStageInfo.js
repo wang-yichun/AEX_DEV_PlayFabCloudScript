@@ -54,10 +54,12 @@ handlers.ForbidSyncStageInfo = function (args, context) {
 
     	var updateResult = server.UpdatePlayerStatistics({
     		PlayFabId : currentPlayerId,
-    		UserStatistics: {
-    			StatisticName: statistic_name,
-    			Value: -1
-    		}
+    		UserStatistics: [
+	    		{
+	    			StatisticName: statistic_name,
+	    			Value: -1
+	    		}
+    		]
     	});
 
 		return {status: 0, result: updateResult};
