@@ -24,7 +24,9 @@ handlers.SendPushWatch = function (args)
 	        } else if (language.Value == "Chinese") {
 	            msg_text = "有人看了你的录像";
 	        } else if (language.Value =="Chinese (Hong Kong)"){
-	            msg_text = "有人看了你的錄像.";
+	            msg_text = "有人看了你的錄像";
+	        } else if (language.Value =="Japanese"){
+	            msg_text = "誰かがあなたのビデオを見ました";
 	        }
 	    }
 

@@ -25,6 +25,8 @@ handlers.SendPushLike = function (args)
 	            msg_text = "有人为你的录像点赞了.";
 	        } else if (language.Value =="Chinese (Hong Kong)"){
 	            msg_text = "有人為你的錄像點贊了.";
+	        } else if (language.Value =="Japanese"){
+	            msg_text = "誰かはあなたのビデオが素晴らしいと思います.";
 	        }
 	    }
 
