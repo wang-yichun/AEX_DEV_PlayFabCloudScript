@@ -23,10 +23,12 @@ handlers.SendPushHearts = function (args)
 	            msg_text = "❤️dein freund hat ein herz für sie!";
 	        } else if (language.Value == "Chinese") {
 	            msg_text = "❤️你的好友送给你了一颗心!";
-	        } else if (language.Value =="Chinese (Hong Kong)"){
+	        } else if (language.Value == "Chinese (Hong Kong)"){
 	            msg_text = "❤️你的朋友送來了一顆心!";
-	        } else if (language.Value =="Japanese"){
+	        } else if (language.Value == "Japanese") {
 	            msg_text = "❤️友達からハートを貰います";
+	        } else if (language.Value == "Spanish") {
+	        	msg_text = "❤️Recibió un corazón de su amigo";
 	        }
 	    }
 
