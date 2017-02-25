@@ -17,11 +17,11 @@ handlers.GatherUserLoginInfo = function (args, context) {
     if (location.City == null){
         location.City = "##";
     }
-    if (location.Latitude = null){
-        location.Latitude = "0";
+    if (location.Latitude == null){
+        location.Latitude = 0;
     }
-    if (location.Longitude = null){
-        location.Longitude = "0";
+    if (location.Longitude == null){
+        location.Longitude = 0;
     }
 
     var locationJson = JSON.stringify(location);
