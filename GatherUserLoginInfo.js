@@ -8,6 +8,22 @@ handlers.GatherUserLoginInfo = function (args, context) {
     var psEvent = context.playStreamEvent;
     var location = psEvent.Location;
 
+    if (location.ContinentCode == null){
+        location.ContinentCode = "##";
+    }
+    if (location.CountryCode == null){
+        location.CountryCode = "##";
+    }
+    if (location.City == null){
+        location.City = "##";
+    }
+    if (location.Latitude = null){
+        location.Latitude = "0";
+    }
+    if (location.Longitude = null){
+        location.Longitude = "0";
+    }
+
     var locationJson = JSON.stringify(location);
 
     server.UpdateUserData({
