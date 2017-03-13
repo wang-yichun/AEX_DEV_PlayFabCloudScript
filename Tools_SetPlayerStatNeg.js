@@ -7,7 +7,7 @@ handlers.SetPlayerStatNeg = function (args) {
 	var player_id = args.player_id;
 
 	var updateResult = server.UpdatePlayerStatistics({
-		PlayFabId : currentPlayerId,
+		PlayFabId : args.player_id,
 		Statistics: [
     		{
     			StatisticName: statistic_name,
